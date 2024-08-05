@@ -1,0 +1,46 @@
+image: debian:stable
+
+workflow:
+  rules:
+    - if: $CI_COMMIT_BRANCH
+
+before_script:
+  - apt update
+  - apt install -y golang wget 9base procps
+
+  - GOPATH=/ go install github.com/uriel/cgd@latest
+
+  - export WERC=/var/www/werc
+  - export PLAN9=/usr/lib/plan9
+
+  - rm -rf $WERC
+  - mkdir -p $(dirname $WERC)
+  - wget http://code.9front.org/hg/werc/archive/tip.tar.gz -O - | tar xz
+  - mv ./werc-* $WERC
+
+  - for bin in rc awk; do rm -f /bin/$bin && ln -s $PLAN9/bin/$bin /bin/$bin; done
+
+cache:
+  paths:
+    - werc/
+
+pages:
+  script:
+    - rm -rf $WERC/sites/localhost
+    - cp -r ./docs $WERC/sites/localhost
+
+    - /bin/cgd -c $WERC/bin/werc.rc -w $WERC/bin -a localhost:80 &
+    - 'wget --retry-connrefused -r -k -e robots=off http://localhost 2> /dev/null || echo wget exited: $?'
+    - jobs -p | xargs kill
+
+    - rm -rf ./public
+    - mv ./localhost public
+
+  artifacts:
+    paths:
+      - public
+
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+
+  environment: production
