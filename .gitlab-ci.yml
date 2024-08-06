@@ -13,19 +13,23 @@ before_script:
   - apt update
   - apt install -y wget 9base procps
 
-  - export CGD=$(realpath ./cgd/bin/cgd)
+  - export CGD=$(realpath ./cgd)
   - export WERC=$(realpath ./werc)
   - export PLAN9=/usr/lib/plan9
 
   - if [ ! -f "$CGD" ]; then
-  -   apt install -y golang
   -   mkdir -p ./cgd
-  -   GOPATH=$(realpath ./cgd) go install github.com/uriel/cgd@latest
+  -   export CGD=$(realpath ./cgd)
+
+  -   apt install -y golang
+  -   GOPATH=$CGD go install github.com/uriel/cgd@latest
   - fi
 
   - if [ ! -d "$WERC" ]; then
   -   wget http://code.9front.org/hg/werc/archive/tip.tar.gz -O - | tar xz
+
   -   mv ./werc-* $WERC
+  -   export WERC=$(realpath ./werc)
   - fi
 
   - for bin in rc awk; do
@@ -37,7 +41,7 @@ pages:
     - rm -rf $WERC/sites/localhost
     - cp -r ./docs $WERC/sites/localhost
 
-    - $CGD -c $WERC/bin/werc.rc -w $WERC/bin -a localhost:80 &
+    - $CGD/bin/cgd -c $WERC/bin/werc.rc -w $WERC/bin -a localhost:80 &
     - 'wget --retry-connrefused -r -k -e robots=off http://localhost 2> /dev/null || echo wget exited: $?'
     - jobs -p | xargs kill
 
