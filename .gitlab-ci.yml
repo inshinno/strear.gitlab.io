@@ -20,10 +20,10 @@ before_script:
   - if [ ! -f "$CGD" ]; then
   -   apt install -y golang
   -   mkdir -p ./cgd
-  -   GOPATH=./cgd go install github.com/uriel/cgd@latest
+  -   GOPATH=$(realpath ./cgd) go install github.com/uriel/cgd@latest
   - fi
 
-  - if [ ! -f "$WERC" ]; then
+  - if [ ! -d "$WERC" ]; then
   -   wget http://code.9front.org/hg/werc/archive/tip.tar.gz -O - | tar xz
   -   mv ./werc-* $WERC
   - fi
