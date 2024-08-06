@@ -17,7 +17,7 @@ before_script:
   - export WERC=$(realpath ./werc)
   - export PLAN9=/usr/lib/plan9
 
-  - if [ ! -f "$CGD" ]; then
+  - if [ ! -d "$CGD" ]; then
   -   mkdir -p ./cgd
   -   export CGD=$(realpath ./cgd)
 
