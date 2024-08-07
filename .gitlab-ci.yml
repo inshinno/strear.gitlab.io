@@ -1,4 +1,4 @@
-image: debian:stable
+image: node:lts
 
 workflow:
   rules:
@@ -6,47 +6,15 @@ workflow:
 
 cache:
   paths:
-    - cgd/
-    - werc/
+    - node_modules/
 
 before_script:
-  - apt update
-  - apt install -y wget 9base procps
-
-  - export CGD=$(realpath ./cgd)
-  - export WERC=$(realpath ./werc)
-  - export PLAN9=/usr/lib/plan9
-
-  - if [ ! -d "$CGD" ]; then
-  -   mkdir -p ./cgd
-  -   export CGD=$(realpath ./cgd)
-
-  -   apt install -y golang
-  -   GOPATH=$CGD go install github.com/uriel/cgd@latest
-  - fi
-
-  - if [ ! -d "$WERC" ]; then
-  -   wget http://code.9front.org/hg/werc/archive/tip.tar.gz -O - | tar xz
-
-  -   mv ./werc-* $WERC
-  -   export WERC=$(realpath ./werc)
-  - fi
-
-  - for bin in rc awk; do
-  -   rm -f /bin/$bin && ln -s $PLAN9/bin/$bin /bin/$bin
-  - done
+  - yarn install
 
 pages:
   script:
-    - rm -rf $WERC/sites/localhost
-    - cp -r ./docs $WERC/sites/localhost
-
-    - $CGD/bin/cgd -c $WERC/bin/werc.rc -w $WERC/bin -a localhost:80 &
-    - 'wget --retry-connrefused -r -k -e robots=off http://localhost 2> /dev/null || echo wget exited: $?'
-    - jobs -p | xargs kill
-
-    - rm -rf ./public
-    - mv ./localhost public
+    - yarn prep_listing && yarn build
+    - mv ./out public
 
   artifacts:
     paths:

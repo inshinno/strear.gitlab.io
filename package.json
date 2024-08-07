@@ -1,0 +1,19 @@
+{
+  "name": "nextra_werc_laf",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "clean_listing": "node werc_laf/lib/dir_listing/delete.mjs",
+    "prep_listing": "node werc_laf/lib/dir_listing/create.mjs",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "^14.2.5",
+    "nextra": "^2.13.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.77.8"
+  }
+}
