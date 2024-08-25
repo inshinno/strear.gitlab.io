@@ -14,7 +14,7 @@ before_script:
 pages:
   script:
     - yarn prep_listing && yarn build
-    - mv ./out public
+    - cp -prn ./out/* ./public
 
   artifacts:
     paths:

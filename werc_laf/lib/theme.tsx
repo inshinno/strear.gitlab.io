@@ -1,15 +1,24 @@
 import React from 'react'
 
 import Head from 'next/head'
-import type { NextraThemeLayoutProps } from 'nextra'
+import Link from 'next/link'
+import type { NextraThemeLayoutProps, PageOpts } from 'nextra'
+
+import 'normalize.css'
 
 import PageMap from './nav'
 import styles from './styles.module.scss'
 
 import themeConfig from '../theme.config'
 
+export type BarType = React.ReactNode | React.FC<{ pageOpts: PageOpts }>
+
 export default function Layout({ children, pageOpts }: NextraThemeLayoutProps) {
   const { title, pageMap, route } = pageOpts
+
+  const renderBar = (val: BarType): React.ReactNode => (
+    typeof val === 'function' ? val({ pageOpts }) : val
+  )
 
   return (
     <div className={[styles.body, themeConfig.bodyStyle].filter(n => n != null).join(' ')}>
@@ -20,9 +29,9 @@ export default function Layout({ children, pageOpts }: NextraThemeLayoutProps) {
 
       <header>
         <nav>
-          {themeConfig.topBar}
+          {renderBar(themeConfig.topBar)}
         </nav>
-        <h1><a href="/">{themeConfig.siteTitle} <span id="headerSubTitle">{themeConfig.siteSubTitle}</span></a></h1>
+        <h1><Link href="/">{themeConfig.siteTitle} <span id="headerSubTitle">{themeConfig.siteSubTitle}</span></Link></h1>
       </header>
 
       <nav id="side-bar">
@@ -33,10 +42,11 @@ export default function Layout({ children, pageOpts }: NextraThemeLayoutProps) {
 
       <article>
         {children}
+        {renderBar(themeConfig.afterMain)}
       </article>
 
       <footer>
-        {themeConfig.footer}
+        {renderBar(themeConfig.footer)}
       </footer>
     </div>
   )
