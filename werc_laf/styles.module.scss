@@ -20,5 +20,10 @@
     margin: auto;
     padding: 20px;
     max-width: 1140px;
+
+    header>h1, footer {
+      background: #f1f4f9;
+      outline: 6pt solid #f1f4f9;
+    }
   }
 }
