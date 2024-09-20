@@ -1,27 +1,31 @@
 @font-face {
-  font-family: 'GitLab Sans';
+  font-family: "GitLab Sans";
   font-weight: 100 900;
   font-display: block;
   font-style: normal;
-  src: url('~@gitlab/fonts/gitlab-sans/GitLabSans.woff2') format('woff2');
+  src: url("~@gitlab/fonts/gitlab-sans/GitLabSans.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'GitLab Sans';
+  font-family: "GitLab Sans";
   font-weight: 100 900;
   font-display: block;
   font-style: italic;
-  src: url('~@gitlab/fonts/gitlab-sans/GitLabSans-Italic.woff2') format('woff2');
+  src: url("~@gitlab/fonts/gitlab-sans/GitLabSans-Italic.woff2") format("woff2");
 }
 
 @media screen {
   .body {
-    font-family: 'GitLab Sans', 'Inter', Arial, Helvetica, sans-serif;
+    font-family: "GitLab Sans", "Inter", Arial, Helvetica, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.5;
+
     margin: auto;
     padding: 20px;
     max-width: 1140px;
 
-    header>h1, footer {
+    header > h1,
+    footer {
       background: #f1f4f9;
       outline: 6pt solid #f1f4f9;
     }

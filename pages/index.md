@@ -1,11 +1,11 @@
-*Vast indigo expanse, who gaze*  
-*Hue of a content sky*
+_Vast indigo expanse, who gaze_  
+_Hue of a content sky_
 
-*A deeper red than the heavens*  
-*Yet within our veins flows*
+_A deeper red than the heavens_  
+_Yet within our veins flows_
 
-*As if love still dwells in this world*  
-*Falling on timeless shores*
+_As if love still dwells in this world_  
+_Falling on timeless shores_
 
-*A feather-thought, I am*  
-*Breathing dreams that sway*
+_A feather-thought, I am_  
+_Breathing dreams that sway_
