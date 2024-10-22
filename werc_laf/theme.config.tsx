@@ -56,7 +56,7 @@ const ArticleMeta = ({ pageOpts }: { pageOpts: PageOpts }) => {
 
 export default {
   siteTitle: 'ac',
-  siteSubTitle: 'Put the fun back into researching',
+  siteSubTitle: 'where is the unseen truth seen',
   bodyStyle: styles.body,
 
   topBar: <>
