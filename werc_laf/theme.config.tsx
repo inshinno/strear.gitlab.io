@@ -56,7 +56,7 @@ const ArticleMeta = ({ pageOpts }: { pageOpts: PageOpts }) => {
 
 export default {
   siteTitle: 'ac',
-  siteSubTitle: 'where is the unseen truth seen',
+  siteSubTitle: 'say yes to world',
   bodyStyle: styles.body,
 
   topBar: <>
