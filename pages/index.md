@@ -8,9 +8,9 @@ _Not merely the dreams,_
 _Our civilization bore_
 
 _The year of parting,_  
-_The watchful gaze of a white dog_
+_The lingering gaze of a white dog_
 
-<blockquote lang="zh-lzh">
+<section lang="zh-lzh">
 
 山光既盡　造陸未至  
 虹守之花　歇翅之蝶
@@ -18,4 +18,4 @@ _The watchful gaze of a white dog_
 盡夢不止　文明今至  
 知類之年　白犬之望眼
 
-</blockquote>
+</section>
