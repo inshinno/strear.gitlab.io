@@ -1,11 +1,21 @@
-_Vast indigo expanse, who gaze_  
-_Hue of a content sky_
+_Where mountain light fades,_  
+_Uncharted lands await_
 
-_A deeper red than the heavens_  
-_Yet within our veins flows_
+_Rainbow-guarding blossoms,_  
+_Butterflies at rest_
 
-_As if love still dwells in this world_  
-_Falling on timeless shores_
+_Not merely the dreams,_  
+_Our civilization bore_
 
-_A feather-thought, I am_  
-_Breathing dreams that sway_
+_The year of parting,_  
+_The watchful gaze of a white dog_
+
+<blockquote lang="zh-lzh">
+
+山光既盡　造陸未至  
+虹守之花　歇翅之蝶
+
+盡夢不止　文明今至  
+知類之年　白犬之望眼
+
+</blockquote>
