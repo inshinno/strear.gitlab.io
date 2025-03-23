@@ -10,7 +10,7 @@ _Our civilization bore_
 _The year of parting,_  
 _The lingering gaze of a white dog_
 
-<section lang="zh-lzh">
+<section lang="lzh">
 
 山光既盡　造陸未至  
 虹守之花　歇翅之蝶
